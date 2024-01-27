@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-const Navbar = () => {
 
+const Navbar = () => {
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="px-5 shadow-lg border-b md:shadow-none md:border-none top-0 py-3">
       <div className="flex justify-between">
-
-
+        <Drawer></Drawer>
         <div className="flex items-center">
           <img
             className="w-10"
@@ -74,9 +74,7 @@ const Navbar = () => {
 
           {user ? (
             <div>
-              
-
-
+              <Dropdown></Dropdown>
             </div>
           ) : (
             ""
