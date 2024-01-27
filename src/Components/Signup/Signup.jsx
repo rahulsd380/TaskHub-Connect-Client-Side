@@ -1,12 +1,13 @@
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
-import Navbar from "../Navbar/Navbar";
+import useAxiosClient from "../../hooks/useAxiosClient";
 
 const Signup = () => {
+  const axiosUser = useAxiosClient();
   const {updateProfileInfo, signUp, googleSignUp} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Signup = () => {
       const password = e.target.password.value;
       console.log( email, name, password);
 
+      const toastId = toast.loading("Signing up...")
 
       signUp(email, password)
     .then((result) => {
@@ -25,10 +27,14 @@ const Signup = () => {
       updateProfileInfo(name)
       .then(() => {
         const userInfo = { name, email };
+        axiosUser.post("/users", userInfo)
         .then((res) => {
           console.log(res.data);
 
-        
+          if (res.data.insertedId) {
+            toast.success("Signed up successfully.", { id: toastId });
+            navigate(location?.state ? location.state : "/");
+          }
         });
       });
     })

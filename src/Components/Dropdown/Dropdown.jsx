@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Dropdown = () => {
