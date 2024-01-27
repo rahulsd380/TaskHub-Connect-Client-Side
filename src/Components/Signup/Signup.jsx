@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import useAxiosClient from "../../hooks/useAxiosClient";
+import Navbar from "../Navbar/Navbar";
 
 const Signup = () => {
   const axiosUser = useAxiosClient();
@@ -61,7 +62,7 @@ const Signup = () => {
     return (
       <div>
       <Helmet>
-             <title>Rent Nest | Sign Up</title>
+             <title>TaskHub Connect | Sign Up</title>
          </Helmet>
          <Navbar></Navbar>
        <div className="max-w-6xl mx-auto py-10">
@@ -70,18 +71,22 @@ const Signup = () => {
        {/* Left side form */}
        <form className="p-14" onSubmit={handleSignUp}>
        <div>
-       <div className="flex items-center mb-2">
-        <img
-          className="w-10"
-          src="https://i.ibb.co/FBLHBHw/logo.png"
-          alt=""
-        />
-        <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-          TaskWave
-        </h1>
-      </div>
+
+        {/* Logo */}
+       <div className="flex items-center gap-3 mb-2">
+          <img
+            className="w-10"
+            src="https://i.ibb.co/McS33RY/logo.png"
+            alt=""
+          />
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+            TaskHub Connect
+          </h1>
+        </div>
+
+
          <h1 className="text-xl font-bold text-gray-600 mb-2">
-           Welcome to <span className="text-teal-500">Task Wave.</span> Manage your task to be successfull!
+           Welcome to <span className="text-blue-500">TaskHub Connect.</span> Manage your task to be successfull!
          </h1>
          
 
@@ -124,10 +129,10 @@ const Signup = () => {
               <p className="textgray-600 font-semibold flex items-center gap-2"><input type="checkbox"  className="checkbox text-blue-600" /> Remember me</p>
 
 
-              <p className="textgray-600 font-semibold text-teal-500">Forgot Password?</p>
+              <p className="textgray-600 font-semibold text-blue-500">Forgot Password?</p>
            </div>
 
-           <button className="w-full font-semibold transition duration-300 bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded text-white mb-3">
+           <button className="w-full font-semibold transition duration-300 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white mb-3">
              Sign Up
            </button>
 
@@ -165,7 +170,7 @@ const Signup = () => {
                <p className="mb-5">
                Empower your journey to success by efficiently managing your tasks! Join us today to streamline your workflow, stay organized, and achieve your goals with ease.
                </p>
-               <button className="p-2 bg-teal-600 rounded-md">Get Started</button>
+               <button className="p-2 bg-blue-600 rounded-md">Get Started</button>
              </div>
            </div>
          </div>

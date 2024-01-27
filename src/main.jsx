@@ -8,6 +8,8 @@ import Home from "./Components/Home/Home";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
+import Signup from "./Components/Signup/Signup";
+import Login from "./Components/Login/Login";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/signup",
+        element: <Signup></Signup>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

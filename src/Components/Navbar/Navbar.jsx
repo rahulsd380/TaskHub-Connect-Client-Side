@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Dropdown from "../Dropdown/Dropdown";
+import SideBarDrawer from "../SideBarDrawer/SideBarDrawer";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -9,15 +10,15 @@ const Navbar = () => {
   return (
     <div className="px-5 shadow-lg border-b md:shadow-none md:border-none top-0 py-3">
       <div className="flex justify-between">
-        <Drawer></Drawer>
-        <div className="flex items-center">
+        <SideBarDrawer></SideBarDrawer>
+        <div className="flex items-center gap-3">
           <img
             className="w-10"
-            src="https://i.ibb.co/FBLHBHw/logo.png"
+            src="https://i.ibb.co/McS33RY/logo.png"
             alt=""
           />
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-            TaskWave
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+            TaskHub Connect
           </h1>
         </div>
 
@@ -60,13 +61,13 @@ const Navbar = () => {
           {!user ? (
             <div className="hidden md:flex gap-5">
               <Link to={"/login"}>
-                <button className="text-teal-500 border border-teal-400 font-semibold  rounded-md hover:bg-emerald-400 transition duration-300 hover:text-white px-6 py-2">
+                <button className="text-blue-500 border border-blue-400 font-semibold  rounded-md hover:bg-blue-400 transition duration-300 hover:text-white px-6 py-2">
                   Login
                 </button>
               </Link>
 
               <Link to={"/signup"}>
-                <button className="text-white bg-gradient-to-r from-emerald-300 to-emerald-500 font-semibold border-teal-400 rounded-md py-2 px-6">
+                <button className="text-white bg-gradient-to-r from-blue-400 to-blue-500 font-semibold border-blue-400 rounded-md py-2 px-6">
                   Sign Up
                 </button>
               </Link>
