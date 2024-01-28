@@ -21,27 +21,37 @@ const AllTasks = () => {
 
 
 
-  const [sortByLow, setSortByLow] = useState(null);
-  const [sortByModerate, setSortByModerate] = useState(null);
-  const [sortByHigh, setSortByHigh] = useState(null);
-  const [sortByMostImportant, setSortByMostImportant] = useState(null);
+  const [sortByCompleted, setSortByCompleted] = useState(false);
+  const [sortByTodo, setSortByTodo] = useState(false);
+  const [sortByOnGoing, setSortByOnGoing] = useState(false);
 
+  const handleSortByCompleted = () => {
+    setSortByCompleted(true);
+    setSortByTodo(false);
+    setSortByOnGoing(false);
+  };
 
-const handleSortByLow = () => {
-  setSortByLow('Low');
-};
+  const handleSortByTodo = () => {
+    setSortByCompleted(false);
+    setSortByTodo(true);
+    setSortByOnGoing(false);
+  };
 
-const handleSortByModerate = () => {
-  setSortByModerate('Moderate');
-};
+  const handleSortByOnGoing = () => {
+    setSortByCompleted(false);
+    setSortByTodo(false);
+    setSortByOnGoing(true);
+  };
 
-const handleSortByHigh = () => {
-  setSortByHigh('High');
-};
+  const [dueDateFilter, setDueDateFilter] = useState(null);
 
-const handleSortByMostImportant = () => {
-  setSortByMostImportant('Most Important');
-};
+  const handleDueDateFilter = (selectedDate) => {
+    setDueDateFilter(selectedDate);
+    // Clear other filters when due date filter is applied
+    setSortByCompleted(false);
+    setSortByTodo(false);
+    setSortByOnGoing(false);
+  };
 
 
 
@@ -126,15 +136,19 @@ const handleSortByMostImportant = () => {
     });
   };
 
-  // Filter task
-  const filteredTask = allTasks.filter((task) => {
-    const low = sortByLow ? task.priority.toLowerCase() === 'low' : true;
-    const moderate = sortByModerate ? task.priority.toLowerCase() === 'moderate' : true;
-    const high = sortByHigh ? task.priority.toLowerCase() === 'high' : true;
-    const mostImportant = sortByMostImportant ? task.priority.toLowerCase() === 'most important' : true;
+
+    // Filter task
+    const filteredTask = allTasks.filter((task) => {
+      const completed = sortByCompleted ? task.status === 'Completed' : true;
+      const todo = sortByTodo ? task.status.toLowerCase() === 'to-do' : true;
+      const onGoing = sortByOnGoing ? task.status === 'On-going' : true;
+      const dueDateCondition = dueDateFilter
+      ? new Date(task.deadline) <= new Date(dueDateFilter)
+      : true;
+
+    return completed && todo && onGoing && dueDateCondition;
+    });
   
-    return low && moderate && high && mostImportant;
-  });
   
 
 
@@ -143,29 +157,39 @@ const handleSortByMostImportant = () => {
   return (
     <div className="max-w-7xl mx-auto pb-10">
       <Header></Header>
-      <div className="flex justify-between">
-      <h1 className="text-2xl text-gray-500 font-bold mb-7 flex items-center gap-2"><FaTasks className="text-teal-500"></FaTasks> Manage All Tasks</h1>
+      <div className="flex items-center justify-between">
+      <h1 className="text-2xl text-gray-500 font-bold flex items-center gap-2"><FaTasks className="text-teal-500"></FaTasks> Manage All Tasks</h1>
 
       <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
+      <p className="text-gray-600 font-semibold">Status Filter:</p>
       <details className="dropdown">
           <summary className="bg-white border border-gray-300 hover:cursor-pointer hover:bg-teal-500 hover:text-white transition duration-300 p-2 rounded-md flex items-center gap-3">
             Filter <IoIosArrowDown></IoIosArrowDown>
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li>
-              <a onClick={() => handleSortByLow('Low')}>Low</a>
+              <a onClick={() => handleSortByCompleted('Completed')}>Completed</a>
             </li>
             <li>
-              <a onClick={() => handleSortByModerate('Moderate')}>Moderate</a>
+              <a onClick={() => handleSortByTodo('to-do')}>To-do</a>
             </li>
             <li>
-              <a onClick={() => handleSortByHigh('High')}>High</a>
-            </li>
-            <li>
-              <a onClick={() => handleSortByMostImportant('Most Important')}>Most Important</a>
+              <a onClick={() => handleSortByOnGoing('On-going')}>On-going</a>
             </li>
           </ul>
         </details>
+      </div>
+
+        <div className="flex items-center gap-2">
+          <p className="text-gray-600 font-semibold">Due Date Filter:</p>
+          <input
+            type="date"
+            onChange={(e) => handleDueDateFilter(e.target.value)}
+            value={dueDateFilter || ''}
+            className="border border-gray-300 px-2 py-1 rounded"
+          />
+        </div>
 
         
         <Link to={"/dashboard/addTask"}>
