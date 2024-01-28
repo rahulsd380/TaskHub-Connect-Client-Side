@@ -39,7 +39,7 @@ const Dropdown = () => {
         onClick={toggleDropdown}
       >
 
-<div className="text-gray-500 flex items-center gap-2 font-semibold hover:text-teal-500 transition duration-300 text-base">
+<div className="text-gray-500 flex items-center gap-2 font-semibold hover:text-blue-500 transition duration-300 text-base">
   
                         <FaRegUser></FaRegUser>
                         <p>{user?.displayName}</p>
@@ -53,7 +53,7 @@ const Dropdown = () => {
       {isOpen && (
         <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-gradient-to-r from-slate-100 to-emerald-100 ring-1 ring-black ring-opacity-5 transition duration-300 opacity-100 border-2 border-teal-500">
           <div className='flex flex-col px-4'>
-            <div className='flex justify-center border-b-2 border-teal-400 pb-2 mt-5'>
+            <div className='flex justify-center border-b-2 border-blue-400 pb-2 mt-5'>
               <div>
               <div className='flex justify-center'>
               <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-emerald-300 to-emerald-500 text-gray-200 text-2xl">
@@ -63,21 +63,21 @@ const Dropdown = () => {
                        
                     </div>
               </div>
-              <h1 className='text-xl font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent'>{user?.displayName}</h1>
+              <h1 className='text-xl font-bold bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent'>{user?.displayName}</h1>
               </div>
             </div>
                     
-                      <Link to={"/dashboard/allTasks"} className="hover:text-teal-500 transition duration-300 text-teal-700 font-semibold mt-7 mb-2 border-b border-blue-900 pb-1">Dashboard</Link> 
+                      <Link to={"/dashboard/allTasks"} className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold mt-7 mb-2 border-b border-blue-900 pb-1">Dashboard</Link> 
                  
 
-                    <Link to={"/userDashboard/teacherDashboard"} className="hover:text-teal-500 transition duration-300 text-teal-700 font-semibold mb-2 border-b border-blue-900 pb-1">View Profile</Link> 
+                    <Link to={"/userDashboard/teacherDashboard"} className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold mb-2 border-b border-blue-900 pb-1">View Profile</Link> 
 
-                    <Link to={"/userDashboard/teacherDashboard"} className="hover:text-teal-500 transition duration-300 text-teal-700 font-semibold mb-2 border-b border-blue-900 pb-1">Help Center</Link> 
+                    <Link to={"/userDashboard/teacherDashboard"} className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold mb-2 border-b border-blue-900 pb-1">Help Center</Link> 
 
 
                     
-            {user? <Link onClick={handleLogout} className='text-teal-600 hover:text-teal-500 transition duration-300 mb-4 text-base font-semibold flex items-center gap-3'>Logout <TbLogout2 className="text-xl"></TbLogout2></Link> :
-            <Link to={"/login"} className='text-teal-700 hover:text-teal-500 transition duration-300 mb-4 text-base font-semibold flex items-center gap-3'>Login <BiLogIn className="text-xl"></BiLogIn></Link>}
+            {user? <Link onClick={handleLogout} className='text-blue-600 hover:text-blue-500 transition duration-300 mb-4 text-base font-semibold flex items-center gap-3'>Logout <TbLogout2 className="text-xl"></TbLogout2></Link> :
+            <Link to={"/login"} className='text-teal-700 hover:text-blue-500 transition duration-300 mb-4 text-base font-semibold flex items-center gap-3'>Login <BiLogIn className="text-xl"></BiLogIn></Link>}
           </div>
         </div>
       )}
