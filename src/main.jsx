@@ -14,6 +14,7 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import DashboardLayout from "./Components/Dashboard/DashboardLayout";
 import AddTask from "./Components/Dashboard/Pages/AddTask";
 import AllTasks from "./Components/Dashboard/Pages/AllTasks";
+import Todo from "./Components/Dashboard/Pages/Todo";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "allTasks",
         element: <AllTasks></AllTasks>,
+      },
+      {
+        path: "todo",
+        element: <Todo></Todo>,
       },
     ],
   },
