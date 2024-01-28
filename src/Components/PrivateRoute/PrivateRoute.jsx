@@ -11,7 +11,7 @@ const PrivateRoute = ({children}) => {
 
 
     if(loading){
-        return <div className="flex justify-center"> <div className="w-48"><Lottie animationData={finding}></Lottie></div> </div>
+        return <div className="flex justify-center"> <div className="w-48 flex justify-center items-center h-screen"><Lottie animationData={finding}></Lottie></div> </div>
     }
     if(user?.email){
         return children

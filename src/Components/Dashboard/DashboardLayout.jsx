@@ -6,6 +6,7 @@ import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { MdAddCard } from "react-icons/md";
 import { MdManageHistory } from "react-icons/md";
 import { AiOutlineFundView } from "react-icons/ai";
+import { FaHandsHelping } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
@@ -89,6 +90,13 @@ const DashboardLayout = () => {
               </NavLink>
             </div>
           </div>
+          <NavLink
+            to={"/dashboard/collaborators"}
+            className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
+          >
+            <FaHandsHelping></FaHandsHelping>Collaborators
+          </NavLink>
+
           <NavLink
             to={"/dashboard/calender"}
             className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"

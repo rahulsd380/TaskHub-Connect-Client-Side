@@ -14,7 +14,9 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import DashboardLayout from "./Components/Dashboard/DashboardLayout";
 import AddTask from "./Components/Dashboard/Pages/AddTask";
 import AllTasks from "./Components/Dashboard/Pages/AllTasks";
-import Todo from "./Components/Dashboard/Pages/Todo";
+import Todo from "./Components/Dashboard/Pages/Categorize Task/Todo";
+import Ongoing from "./Components/Dashboard/Pages/Categorize Task/Ongoing";
+import Collaborators from "./Components/Dashboard/Pages/Collaborators";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
       {
         path: "todo",
         element: <Todo></Todo>,
+      },
+      {
+        path: "ongoing",
+        element: <Ongoing></Ongoing>,
+      },
+      {
+        path: "collaborators",
+        element: <Collaborators></Collaborators>,
       },
     ],
   },

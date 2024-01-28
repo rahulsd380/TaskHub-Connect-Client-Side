@@ -1,14 +1,14 @@
 import { FaUser } from "react-icons/fa";
 import { MdOutlineDateRange } from "react-icons/md";
-import Header from "./Header";
+import Header from "../Header";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import finding from "../../../../public/finding.json";
-import empty from "../../../../public/empty.json";
+import finding from "../../../../../public/finding.json";
+import empty from "../../../../../public/empty.json";
 import { FaArrowsTurnToDots } from "react-icons/fa6";
 import toast, { Toaster } from "react-hot-toast";
-import useAxiosClient from "../../../hooks/useAxiosClient";
-import useAllTasks from "../../../hooks/useAllTasks";
+import useAxiosClient from "../../../../hooks/useAxiosClient";
+import useAllTasks from "../../../../hooks/useAllTasks";
 
 const Todo = () => {
   const axiosUser = useAxiosClient();
