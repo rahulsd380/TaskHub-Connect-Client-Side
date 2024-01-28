@@ -24,16 +24,16 @@ const DashboardLayout = () => {
       </Helmet>
       <div className="flex">
         <div className="w-72 px-10 py-5 hidden md:hidden lg:flex flex-col gap-7 bg-gray-800 top-0 h-screen text-lg shadow flex-none font-Lato sticky">
-          <div className="flex items-center">
-            <img
-              className="w-10"
-              src="https://i.ibb.co/FBLHBHw/logo.png"
-              alt=""
-            />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-              TaskWave
-            </h1>
-          </div>
+        <div className="flex items-center">
+          <img
+            className="w-10"
+            src="https://i.ibb.co/McS33RY/logo.png"
+            alt=""
+          />
+          <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+            TaskHub Connect
+          </h1>
+        </div>
           <Link
             to={"/"}
             className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"

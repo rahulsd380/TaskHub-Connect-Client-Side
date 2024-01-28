@@ -18,6 +18,7 @@ const Signup = () => {
       const name = e.target.name.value;
       const email = e.target.email.value;
       const password = e.target.password.value;
+      const role = "user";
       console.log( email, name, password);
 
       const toastId = toast.loading("Signing up...")
@@ -27,7 +28,7 @@ const Signup = () => {
       console.log(result.user);
       updateProfileInfo(name)
       .then(() => {
-        const userInfo = { name, email };
+        const userInfo = { name, email, role };
         axiosUser.post("/users", userInfo)
         .then((res) => {
           console.log(res.data);

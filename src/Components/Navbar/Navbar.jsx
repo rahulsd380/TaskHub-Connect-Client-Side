@@ -50,7 +50,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to={"/dashboard/addTask"}
+            to={"/dashboard/allTasks"}
             className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
           >
             Dashboard
