@@ -47,7 +47,6 @@ const handleSortByMostImportant = () => {
 
   const handleUpdateTask = (e, _id) => {
     e.preventDefault();
-
     const userName = user.displayName;
     const title = e.target.title.value;
     const deadline = e.target.deadline.value;
@@ -55,10 +54,9 @@ const handleSortByMostImportant = () => {
     const taskDescription = e.target.taskDescription.value;
 
     const allData = { userName, title, taskDescription, deadline, priority };
-    console.log(allData);
 
     const toastId = toast.loading("Updating...");
-    fetch(`https://task-management-server-delta-three.vercel.app/tasks/${_id}`, {
+    fetch(`http://localhost:5000/tasks/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -67,7 +65,7 @@ const handleSortByMostImportant = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount) {
+        if (data.modifiedCount > 0) {
           toast.success("Updated Successfully.", { id: toastId });
           refetch();
         }
@@ -194,7 +192,7 @@ const handleSortByMostImportant = () => {
             </tr>
           </thead>
           {isLoading ? (
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center">
               <div className="w-48">
                 <Lottie animationData={finding}></Lottie>
               </div>{" "}
@@ -249,7 +247,7 @@ const handleSortByMostImportant = () => {
                               <div className="grid grid-cols-1 gap-5">
                                 <div className="mb-2">
                                   <p className="mb-1 font-semibold text-gray-600">
-                                    House Title
+                                    Title
                                   </p>
                                   <input
                                     required
