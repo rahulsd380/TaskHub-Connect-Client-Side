@@ -17,6 +17,7 @@ import AllTasks from "./Components/Dashboard/Pages/AllTasks";
 import Todo from "./Components/Dashboard/Pages/Categorize Task/Todo";
 import Ongoing from "./Components/Dashboard/Pages/Categorize Task/Ongoing";
 import Collaborators from "./Components/Dashboard/Pages/Collaborators";
+import Completed from "./Components/Dashboard/Pages/Categorize Task/Completed";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "ongoing",
         element: <Ongoing></Ongoing>,
+      },
+      {
+        path: "completed",
+        element: <Completed></Completed>,
       },
       {
         path: "collaborators",

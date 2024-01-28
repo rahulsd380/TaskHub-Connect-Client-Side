@@ -8,6 +8,7 @@ import { BsBuildingAdd } from "react-icons/bs";
 import { MdError } from "react-icons/md";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useAddTask from "../../../hooks/useAddTask";
+import Header from "./Header";
 
 const AddTask = () => {
   const { user } = useContext(AuthContext);
@@ -68,7 +69,7 @@ const AddTask = () => {
 
   return (
     <div>
-
+<Header></Header>
       <div>
         <h1 className="text-2xl text-gray-500 font-bold mb-7 flex items-center gap-2">
           <BsBuildingAdd className="text-teal-500"></BsBuildingAdd> Add A New
