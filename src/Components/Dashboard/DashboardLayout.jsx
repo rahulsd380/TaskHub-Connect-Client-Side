@@ -9,6 +9,7 @@ import { AiOutlineFundView } from "react-icons/ai";
 import { FaHandsHelping } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
 import useAllTasks from "../../hooks/useAllTasks";
 const DashboardLayout = () => {
@@ -54,8 +55,8 @@ const DashboardLayout = () => {
             <MdManageHistory></MdManageHistory> Manage All Tasks
           </NavLink>
           <div>
-            <p className="text-gray-300 font-semibold flex items-center gap-3 mb-3">
-              <AiOutlineFundView></AiOutlineFundView> Categorize Task
+            <p className="text-gray-300 font-semibold flex items-center gap-3 mb-3 justify-between">
+              <AiOutlineFundView></AiOutlineFundView> Categorize Task <IoIosArrowDown></IoIosArrowDown>
             </p>
             <div className="px-7">
               <NavLink
@@ -90,6 +91,7 @@ const DashboardLayout = () => {
               </NavLink>
             </div>
           </div>
+          
           <NavLink
             to={"/dashboard/collaborators"}
             className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"

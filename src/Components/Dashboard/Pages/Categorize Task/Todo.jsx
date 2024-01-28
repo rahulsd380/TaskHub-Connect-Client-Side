@@ -202,7 +202,7 @@ const Todo = () => {
                       <button
                         data-tip="Mark As Competed"
                         onClick={() => handleMakeCompleted(list)}
-                        className="text-gray-200 font-semibold px-4 py-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md w-full text-center flex items-center gap-2 text-sm border border-teal-500 tooltip"
+                        className="text-gray-200 font-semibold px-4 py-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md w-full flex justify-center items-center gap-2 text-sm border border-teal-500 tooltip"
                       >
                         <IoCheckmarkDoneSharp></IoCheckmarkDoneSharp> Completed
                       </button>
