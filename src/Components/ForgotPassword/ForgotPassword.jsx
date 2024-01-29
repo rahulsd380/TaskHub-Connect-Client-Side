@@ -4,6 +4,7 @@ import { PiSmileySadLight } from "react-icons/pi";
 import toast, { Toaster } from "react-hot-toast";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const ForgotPassword = () => {
@@ -12,9 +13,10 @@ const ForgotPassword = () => {
   
     const handleResetPassword = (e) => {
         e.preventDefault();
+        const toastId = toast.loading("Sending reset link")
         authContext.resetPassword(email)
           .then(() => {
-            alert("Password reset email sent. Check your email inbox.");
+            toast.success("Please check your email and click on the link to rest your password.", { id: toastId, duration: 7000 });
           })
           .catch((error) => {
             console.log(error.message);
@@ -69,6 +71,10 @@ const ForgotPassword = () => {
              <button onClick={handleResetPassword} className="w-full font-semibold transition duration-300 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white mb-3">
                Reset
              </button>
+
+             <div className="flex justify-center">
+             <Link to={"/login"} className="text-blue-500 font-semibold underline flex items-center gap-2"><IoReturnUpBackOutline></IoReturnUpBackOutline> Back to login page</Link>
+             </div>
            </div>
          </div>
          
@@ -92,3 +98,4 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
+import { IoReturnUpBackOutline } from "react-icons/io5";

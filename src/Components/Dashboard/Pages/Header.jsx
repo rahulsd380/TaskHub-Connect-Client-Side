@@ -55,7 +55,7 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-slate-100 to-emerald-100 p-3 rounded-2xl">
+        <div className="bg-gradient-to-r from-slate-200 to-emerald-100 p-3 rounded-2xl">
           <div className="max-w-2xl">
             <h1 className="text-gray-500 text-2xl font-bold mb-1">
               Welcome Back,{" "}

@@ -10,18 +10,18 @@ import {
   
   const Footer = () => {
     return (
-      <div className="bg-gradient-to-r from-slate-100 to-emerald-100 border-t-2">
+      <div className="bg-gray-800 border-t-2">
         <div className="relative z-10">
           <footer className="footer p-10 text-base-content">
             <aside>
               <img
                 className="w-20"
-                src="https://i.ibb.co/FBLHBHw/logo.png"
+                src="https://i.ibb.co/McS33RY/logo.png"
                 alt=""
               />
               <p className=" font-semibold">
                 <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent font-bold text-4xl">
-                  TaskWave
+                  TaskHub Connect
                 </span>
                 <br />
                 Effortless Tasks, Seamless Success.
@@ -106,7 +106,7 @@ import {
             <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
               Rahul Sutradhar
             </span>{" "}
-            Task Wave © 2024
+            TaskHub Connect © 2024
           </p>
           <br />
           {/* <img src="/src/assets/images/1.png" alt="" /> */}
