@@ -110,7 +110,7 @@ const Login = () => {
                 <p className="textgray-600 font-semibold flex items-center gap-2"><input type="checkbox"  className="checkbox text-blue-600" /> Remember me</p>
 
 
-                <p className="textgray-600 font-semibold text-blue-500">Forgot Password?</p>
+                <Link to={"/forgotPassword"} className="textgray-600 font-semibold text-blue-500">Forgot Password?</Link>
              </div>
  
              <button className="w-full font-semibold transition duration-300 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white mb-3">

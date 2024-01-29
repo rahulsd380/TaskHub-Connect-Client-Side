@@ -18,6 +18,7 @@ import Collaborators from "./Components/Dashboard/Pages/Collaborators";
 import Completed from "./Components/Dashboard/Pages/Categorize Task/Completed";
 import Todo from "./Components/Dashboard/Pages/Categorize Task/Todo/Todo";
 import Ongoing from "./Components/Dashboard/Pages/Categorize Task/OnGoing/Ongoing";
+import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "forgotPassword",
+        element: <ForgotPassword></ForgotPassword>,
       },
     ],
   },
@@ -75,6 +80,7 @@ const router = createBrowserRouter([
         path: "collaborators",
         element: <Collaborators></Collaborators>,
       },
+     
     ],
   },
 ]);
