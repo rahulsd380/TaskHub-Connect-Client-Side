@@ -12,8 +12,20 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
 import useAllTasks from "../../hooks/useAllTasks";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 const DashboardLayout = () => {
   const [allTasks, refetch, ] = useAllTasks();
+
+  const [users, setUsers] = useState({});
+  const { user } = useContext(AuthContext);
+  const url = `http://localhost:5000/users?email=${user?.email}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => data.map((i) => setUsers(i)));
+  }, [url]);
 
 
   const todoLists = allTasks.filter((list) => list.status === "to-do");
@@ -36,6 +48,9 @@ const DashboardLayout = () => {
             TaskHub Connect
           </h1>
         </div>
+          {
+            users.role == "user" && 
+            <div className="flex flex-col gap-7">
           <Link
             to={"/"}
             className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
@@ -111,6 +126,41 @@ const DashboardLayout = () => {
           >
             <IoMdNotificationsOutline></IoMdNotificationsOutline>Notifications
           </NavLink>
+          </div>
+          }
+
+{
+            users.role == "admin" && 
+            <div className="flex flex-col gap-7">
+          <Link
+            to={"/"}
+            className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
+          >
+            <GoHome></GoHome> Home
+          </Link>
+          <NavLink
+            to={"/dashboard/allUser"}
+            className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
+          >
+            <MdManageHistory></MdManageHistory> Manage All Users
+          </NavLink>
+          
+          
+
+          <NavLink
+            to={"/dashboard/calender"}
+            className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
+          >
+            <SlCalender></SlCalender>Calender
+          </NavLink>
+          <NavLink
+            to={"/dashboard/manageProducts"}
+            className="text-gray-300 font-semibold hover:text-teal-500 transition duration-300 flex items-center gap-3"
+          >
+            <IoMdNotificationsOutline></IoMdNotificationsOutline>Notifications
+          </NavLink>
+          </div>
+          }
         </div>
 
         <div className="px-5 flex-auto overflow-y-auto">

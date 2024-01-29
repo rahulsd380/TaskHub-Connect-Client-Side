@@ -19,6 +19,7 @@ import Todo from "./Components/Dashboard/Pages/Categorize Task/Todo/Todo";
 import Ongoing from "./Components/Dashboard/Pages/Categorize Task/OnGoing/Ongoing";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import AllTasks from "./Components/Dashboard/Pages/AllTask/AllTasks";
+import AllUser from "./Components/Dashboard/AdminDashboard/Pages/AllUsers/AllUsers";
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "collaborators",
         element: <Collaborators></Collaborators>,
+      },
+      {
+        path: "allUser",
+        element: <AllUser></AllUser>,
       },
      
     ],

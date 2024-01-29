@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import finding from "../../../../../public/finding.json";
 import Lottie from "lottie-react";
 import { FaTasks } from "react-icons/fa";
-import useAllTasks from "../../../../hooks/useAllTasks";
 import useAxiosClient from "../../../../hooks/useAxiosClient";
 import Header from "../Header";
-import { useQuery } from "@tanstack/react-query";
 import AllTaskTable from "./AllTaskTable";
 import { Toaster } from "react-hot-toast";
+import useAllTasks from "../../../../hooks/useAllTasks";
 
 const AllTasks = () => {
 
@@ -129,6 +128,7 @@ const AllTasks = () => {
               <th>Priority</th>
               <th>Description</th>
               <th>Status</th>
+              <th>Collaborators</th>
               <th>Action</th>
             </tr>
           </thead>

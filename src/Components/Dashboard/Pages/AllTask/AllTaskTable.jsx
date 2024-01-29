@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FaPersonRunning } from "react-icons/fa6";
 import { IoMdDoneAll } from "react-icons/io";
 import { IoPersonAddSharp } from "react-icons/io5";
+import { MdCancelPresentation } from "react-icons/md";
 import { MdDelete, MdModeEditOutline, MdOutlineEmail } from "react-icons/md";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import useAllTasks from "../../../../hooks/useAllTasks";
@@ -9,13 +10,15 @@ import useAxiosClient from "../../../../hooks/useAxiosClient";
 import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import useAllCollaborators from "../../../../hooks/useAllCollaborators";
 
 const AllTaskTable = ({ task, index }) => {
-  const { _id, title, userName, deadline, priority, taskDescription, status } =
-    task;
+  const { _id, title, userName, deadline, priority, taskDescription, status } = task;
   const { user } = useContext(AuthContext);
   const [allTasks, isLoading, refetch] = useAllTasks();
   const axiosUser = useAxiosClient();
+  const [allCollaborators, , reload] = useAllCollaborators(_id);
+  console.log(allCollaborators);
 
   const handleUpdateTask = (e, _id) => {
     e.preventDefault();
@@ -114,11 +117,11 @@ const AllTaskTable = ({ task, index }) => {
     const userName = user?.displayName;
     const email = user?.email;
     const collaboratorId = userId;
-    console.log(collaboratorId);
 
     const collaboratorsInfo = { userName, email, collaboratorId };
     axiosUser.post("/collaborators", collaboratorsInfo).then((res) => {
       console.log(res.data);
+      reload();
     });
   };
 
@@ -131,6 +134,18 @@ const AllTaskTable = ({ task, index }) => {
       <td>{priority}</td>
       <td>{taskDescription}</td>
       <td>{status}</td>
+      <td>
+        <div className="avatar-group -space-x-6 rtl:space-x-reverse">
+
+        </div>
+      {
+        allCollaborators.map(collaborators => <div key={collaborators._id} className="avatar">
+          <div className="w-7 rounded-full">
+            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+      </div>)
+      }
+      </td>
       <td>
         <div className="flex items-center gap-2">
           <button
@@ -278,13 +293,21 @@ const AllTaskTable = ({ task, index }) => {
             </button>
             <dialog id={`my_modal2_${_id}`} className="modal">
               <div className="modal-box bg-gray-200">
-                <h3 className="font-bold text-lg text-gray-600 mb-6">
+                <h3 className="font-bold text-lg text-gray-600 mb-6 flex items-center justify-between">
                   Add Collaborators
+                  <div className="modal-action">
+                      <form method="dialog" className="flex gap-10 w-full">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="text-gray-500 text-2xl font-semibold">
+                        <MdCancelPresentation></MdCancelPresentation>
+                        </button>
+                      </form>
+                    </div>
                 </h3>
                 <div>
                   <div className="grid grid-cols-1 gap-3">
                     {allUsers.map((user) => (
-                      <form onSubmit={(e) => handleCollaboratorsubmit(e, user._id)} className=" flex items-center" key={user._id}>
+                      <form onSubmit={(e) => handleCollaboratorsubmit(e, _id)} className=" flex items-center" key={user._id}>
                         <button
                           data-tip={`Add ${user.name} to your team`}
                           className="bg-gray-50 px-2 rounded-md w-full text-start hover:bg-gray-100 transition duration-300 tooltip"
@@ -298,24 +321,6 @@ const AllTaskTable = ({ task, index }) => {
                         </button>
                       </form>
                     ))}
-                  </div>
-
-                  <div className="flex flex-row-reverse items-center gap-9">
-                    <button
-                      type="submit" // Add this line to submit the form
-                      className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-md w-full text-center mt-5"
-                    >
-                      Save Changes
-                    </button>
-
-                    <div className="modal-action">
-                      <form method="dialog" className="flex gap-10 w-full">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="text-gray-500 border border-gray-600 font-semibold px-4 py-2 rounded-md w-full text-center">
-                          Cancel
-                        </button>
-                      </form>
-                    </div>
                   </div>
                 </div>
 
@@ -338,3 +343,4 @@ const AllTaskTable = ({ task, index }) => {
 };
 
 export default AllTaskTable;
+

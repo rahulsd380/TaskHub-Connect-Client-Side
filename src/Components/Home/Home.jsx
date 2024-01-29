@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../Navbar/Navbar";
 import Hero from "../Hero/Hero";
 import Footer from "../Footer/Footer";
+import AllUser from "../Dashboard/AdminDashboard/Pages/AllUsers/AllUsers";
 
 
 
@@ -13,6 +14,7 @@ const Home = () => {
           </Helmet>
           <Navbar></Navbar>
           <Hero></Hero>
+          <AllUser></AllUser>
           <Footer></Footer>
 
 

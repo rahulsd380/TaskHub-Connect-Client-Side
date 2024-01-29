@@ -4,6 +4,7 @@ import { MdOutlineCancelPresentation } from "react-icons/md";
 import { FaRegCaretSquareRight } from "react-icons/fa";
 import { BiCommentDetail } from "react-icons/bi";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { FaRegCircleUser } from "react-icons/fa6";
 import toast, { Toaster } from "react-hot-toast";
 import useAxiosClient from "../../../../../hooks/useAxiosClient";
 import useAllTasks from "../../../../../hooks/useAllTasks";
@@ -12,6 +13,7 @@ import { AuthContext } from "../../../../AuthProvider/AuthProvider";
 import useAllComments from "../../../../../hooks/useAllComments";
 import Lottie from "lottie-react";
 import empty from "../../../../../../public/empty.json";
+import { comment } from "postcss";
 
 
 const TodoTasks = ({list}) => {
@@ -89,7 +91,7 @@ const TodoTasks = ({list}) => {
                           <BiCommentDetail></BiCommentDetail> Comment
                         </button>
                         <dialog id={`my_modal_${_id}`} className="modal">
-                          <div className="modal-box bg-gray-200">
+                          <div className="modal-box bg-[#F0F2F5]">
                             <div>
                               <div className="flex items-center gap-3 relative mb-4">
                                 <div className="modal-action absolute top-0 right-0">
@@ -103,14 +105,10 @@ const TodoTasks = ({list}) => {
                                     </button>
                                   </form>
                                 </div>
-                                <img
-                                  className="w-10 h-10 rounded-full bg-teal-100"
-                                  src="/public/vite.svg"
-                                  alt=""
-                                />
+                                <FaRegCircleUser className="text-3xl text-teal-500"></FaRegCircleUser>
                                 <div className="">
-                                  <h1 className="text-xl text-red-500 font-bold">
-                                    {title}
+                                  <h1 className="text-xl text-teal-500 font-bold">
+                                    {userName}
                                   </h1>
                                   <p className="text-gray-500 font-semibold text-xs">
                                     Web Developer
@@ -121,8 +119,8 @@ const TodoTasks = ({list}) => {
                             <form onSubmit={(e) => handleCommentSubmit(e, _id)}>
                               <div className="grid grid-cols-1 gap-5 mb-5">
                                 <div className="">
-                                  <h1 className="text-xl text-red-500 font-bold">
-                                    {userName}
+                                  <h1 className="text-xl text-teal-500 font-bold">
+                                    {title}
                                   </h1>
 
                                   <p className="text-gray-500 pb-2 border-gray-400 border-b">
@@ -169,7 +167,7 @@ const TodoTasks = ({list}) => {
                                   name="comment"
                                   className="bg-white border border-gray-400 outline-none px-2 py-1 rounded-l-md w-full"
                                   type="text"
-                                  placeholder="Comment As Rahul Sutradhar"
+                                  placeholder={`Comment As ${userName}`}
                                 />
                                 <button className="text-gray-200 font-semibold p-1 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-r-md text-center border border-green-600">
                                   <FaRegCaretSquareRight className="text-2xl"></FaRegCaretSquareRight>

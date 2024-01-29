@@ -88,7 +88,7 @@ const OnGoingTasks = ({list}) => {
                       <BiCommentDetail></BiCommentDetail> Comment
                     </button>
                     <dialog id={`my_modal_${_id}`} className="modal">
-                      <div className="modal-box bg-gray-200">
+                      <div className="modal-box bg-[#F0F2F5]">
                         <div>
                           <div className="flex items-center gap-3 relative">
                             <div className="modal-action absolute top-0 right-0">
