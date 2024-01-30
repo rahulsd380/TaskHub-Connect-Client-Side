@@ -20,7 +20,7 @@ const SideBarDrawer = () => {
   };
 
   const [users, setUsers] = useState({});
-  const url = `http://localhost:5000/users?email=${user?.email}`;
+  const url = `https://task-hub-connect-server.vercel.app/users?email=${user?.email}`;
   console.log(users);
 
   useEffect(() => {

@@ -18,7 +18,7 @@ const DashboardLayout = () => {
 
   const [users, setUsers] = useState({});
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/users?email=${user?.email}`;
+  const url = `https://task-hub-connect-server.vercel.app/users?email=${user?.email}`;
   console.log(users);
 
   useEffect(() => {

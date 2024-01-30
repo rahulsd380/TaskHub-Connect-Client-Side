@@ -32,7 +32,7 @@ const AllTaskTable = ({ task, index }) => {
     const allData = { userName, title, taskDescription, deadline, priority };
 
     const toastId = toast.loading("Updating...");
-    fetch(`http://localhost:5000/tasks/${_id}`, {
+    fetch(`https://task-hub-connect-server.vercel.app/tasks/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

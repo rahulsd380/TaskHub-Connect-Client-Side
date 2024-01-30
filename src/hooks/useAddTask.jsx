@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const axiosAddTask = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://task-hub-connect-server.vercel.app'
 })
 
 const useAddTask = () => {

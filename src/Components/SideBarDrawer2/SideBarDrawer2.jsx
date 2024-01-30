@@ -27,7 +27,7 @@ const SideBarDrawer2 = () => {
 
   const [todoList, setTodoList] = useState([]);
 
-  const url = `https://task-management-server-delta-three.vercel.app/tasks?email=${user?.email}`;
+  const url = `https://task-hub-connect-server.vercel.app/tasks?email=${user?.email}`;
   console.log(todoList);
 
   useEffect(() => {

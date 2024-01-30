@@ -3,7 +3,7 @@
 "Welcome to TaskHub Connect, your dynamic task management solution! TaskWave simplifies your workflow, offering intuitive tools for efficient task organization, collaboration, and goal achievement. Dive into a user-friendly experience where productivity meets simplicity. Join TaskWave and elevate your task management journey!
 
 ## Live Link
-You can access the live version of this project here: [View Site](https://65b3e3055703dc30203740a7--playful-youtiao-9eba88.netlify.app/)
+You can access the live version of this project here: [View Site](https://taskhub-connect.web.app/)
 
 ## Project Description
 "TaskWave simplifies your workflow, offering intuitive tools for efficient task organization, collaboration, and goal achievement. Dive into a user-friendly experience where productivity meets simplicity. Join TaskWave and elevate your task management journey!"

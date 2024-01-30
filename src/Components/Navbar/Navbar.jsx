@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user } = useContext(AuthContext);
 
   const [users, setUsers] = useState({});
-  const url = `http://localhost:5000/users?email=${user?.email}`;
+  const url = `https://task-hub-connect-server.vercel.app/users?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
