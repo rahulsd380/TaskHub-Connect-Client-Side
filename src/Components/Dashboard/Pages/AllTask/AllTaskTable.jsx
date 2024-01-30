@@ -13,7 +13,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAllCollaborators from "../../../../hooks/useAllCollaborators";
 
 const AllTaskTable = ({ task, index }) => {
-  const { _id, title, userName, deadline, priority, taskDescription, status } = task;
+  const { _id, title, userName, deadline, priority, taskDescription, status } =
+    task;
   const { user } = useContext(AuthContext);
   const [allTasks, isLoading, refetch] = useAllTasks();
   const axiosUser = useAxiosClient();
@@ -135,16 +136,14 @@ const AllTaskTable = ({ task, index }) => {
       <td>{taskDescription}</td>
       <td>{status}</td>
       <td>
-        <div className="avatar-group -space-x-6 rtl:space-x-reverse">
-
-        </div>
-      {
-        allCollaborators.map(collaborators => <div key={collaborators._id} className="avatar">
-          <div className="w-7 rounded-full">
-            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        <div className="avatar-group -space-x-6 rtl:space-x-reverse"></div>
+        {allCollaborators.map((collaborators) => (
+          <div key={collaborators._id} className="avatar">
+            <div className="w-7 rounded-full">
+              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
           </div>
-      </div>)
-      }
+        ))}
       </td>
       <td>
         <div className="flex items-center gap-2">
@@ -286,7 +285,7 @@ const AllTaskTable = ({ task, index }) => {
               onClick={() =>
                 document.getElementById(`my_modal2_${_id}`).showModal()
               }
-              className="p-2 border rounded-md bg-gray-50 flex justify-center items-center text-green-600 tooltip"
+              className="p-2 border rounded-md bg-gray-50 flex justify-center items-center text-purple-600 tooltip"
               data-tip="Add collaborators"
             >
               <IoPersonAddSharp></IoPersonAddSharp>
@@ -296,18 +295,22 @@ const AllTaskTable = ({ task, index }) => {
                 <h3 className="font-bold text-lg text-gray-600 mb-6 flex items-center justify-between">
                   Add Collaborators
                   <div className="modal-action">
-                      <form method="dialog" className="flex gap-10 w-full">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="text-gray-500 text-2xl font-semibold">
+                    <form method="dialog" className="flex gap-10 w-full">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="text-gray-500 text-2xl font-semibold">
                         <MdCancelPresentation></MdCancelPresentation>
-                        </button>
-                      </form>
-                    </div>
+                      </button>
+                    </form>
+                  </div>
                 </h3>
                 <div>
                   <div className="grid grid-cols-1 gap-3">
                     {allUsers.map((user) => (
-                      <form onSubmit={(e) => handleCollaboratorsubmit(e, _id)} className=" flex items-center" key={user._id}>
+                      <form
+                        onSubmit={(e) => handleCollaboratorsubmit(e, _id)}
+                        className=" flex items-center"
+                        key={user._id}
+                      >
                         <button
                           data-tip={`Add ${user.name} to your team`}
                           className="bg-gray-50 px-2 rounded-md w-full text-start hover:bg-gray-100 transition duration-300 tooltip"
@@ -343,4 +346,3 @@ const AllTaskTable = ({ task, index }) => {
 };
 
 export default AllTaskTable;
-

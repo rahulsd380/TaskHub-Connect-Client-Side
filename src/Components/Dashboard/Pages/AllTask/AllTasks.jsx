@@ -11,7 +11,6 @@ import { Toaster } from "react-hot-toast";
 import useAllTasks from "../../../../hooks/useAllTasks";
 
 const AllTasks = () => {
-
   const [allTasks, isLoading, refetch] = useAllTasks();
   const axiosUser = useAxiosClient();
 
@@ -47,10 +46,6 @@ const AllTasks = () => {
     setSortByOnGoing(false);
   };
 
-  
-
-  
-
   // Filter task
   const filteredTask = allTasks.filter((task) => {
     const completed = sortByCompleted ? task.status === "Completed" : true;
@@ -63,17 +58,17 @@ const AllTasks = () => {
     return completed && todo && onGoing && dueDateCondition;
   });
 
-
-
   return (
     <div className="max-w-7xl mx-auto pb-10">
       <Header></Header>
-      <div className="flex items-center justify-between">
+      <div className="flex gap-3 md:gap-0 flex-wrap items-center justify-between">
+        <div>
         <h1 className="text-2xl text-gray-500 font-bold flex items-center gap-2">
-          <FaTasks className="text-teal-500"></FaTasks> Manage All Tasks
+          <FaTasks className="text-blue-400"></FaTasks> Manage All Tasks
         </h1>
+        </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex-col md:flex md:flex-row gap-3 items-center space-y-3 md:space-y-0">
           <div className="flex items-center gap-2">
             <p className="text-gray-600 font-semibold">Status Filter:</p>
             <details className="dropdown">
@@ -107,20 +102,21 @@ const AllTasks = () => {
               className="border border-gray-300 px-2 py-1 rounded"
             />
           </div>
-
           <Link to={"/dashboard/addTask"}>
-            <button className="text-white font-semibold px-4 py-2 bg-gradient-to-r from-emerald-300 to-emerald-500 transition duration-300 rounded-md text-center">
+            <button className="text-white font-semibold px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500  transition duration-300 rounded-md text-center">
               Add New Task
             </button>
           </Link>
+          
         </div>
+        
       </div>
 
       <div className="overflow-x-auto pt-5">
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="text-white text-sm bg-teal-500">
+            <tr className="text-white text-sm bg-gradient-to-r from-cyan-500 to-blue-500">
               <th>SL.</th>
               <th>Title</th>
               <th>Name</th>
@@ -141,7 +137,11 @@ const AllTasks = () => {
           ) : (
             <tbody>
               {filteredTask.map((task, index) => (
-                <AllTaskTable key={task._id} task={task} index={index}></AllTaskTable>
+                <AllTaskTable
+                  key={task._id}
+                  task={task}
+                  index={index}
+                ></AllTaskTable>
               ))}
             </tbody>
           )}

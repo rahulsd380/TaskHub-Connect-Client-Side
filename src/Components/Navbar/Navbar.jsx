@@ -18,15 +18,15 @@ const Navbar = () => {
 
   return (
     <div className="px-5 shadow-lg border-b md:shadow-none md:border-none top-0 py-3">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center gap-2">
         <SideBarDrawer></SideBarDrawer>
         <div className="flex items-center gap-3">
           <img
             className="w-10"
-            src="https://i.ibb.co/McS33RY/logo.png"
+            src="https://i.ibb.co/SB6vPxw/logo.png"
             alt=""
           />
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
             TaskHub Connect
           </h1>
         </div>
@@ -34,26 +34,26 @@ const Navbar = () => {
         <div className="hidden md:flex md:items-center md:gap-8">
           <Link
             to={"/"}
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             Home
           </Link>
           <Link
             to={"/aboutUs"}
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             About Us
           </Link>
 
           <Link
             to={"/blogs"}
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             Blog
           </Link>
           <Link
             to="faq"
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             FAQ
           </Link>
@@ -62,14 +62,14 @@ const Navbar = () => {
             users.role == "admin" ? 
             <Link
             to={"/dashboard/allUser"}
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             Dashboard
           </Link>
           :
           <Link
             to={"/dashboard/allTasks"}
-            className="hover:text-blue-500 transition duration-300 text-gray-500 font-semibold dark:text-green-400"
+            className="hover:text-blue-400 transition duration-300 text-gray-500 font-semibold "
           >
             Dashboard
           </Link>
@@ -86,7 +86,7 @@ const Navbar = () => {
               </Link>
 
               <Link to={"/signup"}>
-                <button className="text-white bg-gradient-to-r from-blue-400 to-blue-500 font-semibold border-blue-400 rounded-md py-2 px-6">
+                <button className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold border-blue-400 rounded-md py-2 px-6">
                   Sign Up
                 </button>
               </Link>

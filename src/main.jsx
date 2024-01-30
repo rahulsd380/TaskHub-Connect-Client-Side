@@ -13,7 +13,6 @@ import Login from "./Components/Login/Login";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import DashboardLayout from "./Components/Dashboard/DashboardLayout";
 import AddTask from "./Components/Dashboard/Pages/AddTask";
-import Collaborators from "./Components/Dashboard/Pages/Collaborators";
 import Completed from "./Components/Dashboard/Pages/Categorize Task/Completed";
 import Todo from "./Components/Dashboard/Pages/Categorize Task/Todo/Todo";
 import Ongoing from "./Components/Dashboard/Pages/Categorize Task/OnGoing/Ongoing";
@@ -76,10 +75,6 @@ const router = createBrowserRouter([
       {
         path: "completed",
         element: <Completed></Completed>,
-      },
-      {
-        path: "collaborators",
-        element: <Collaborators></Collaborators>,
       },
       {
         path: "allUser",

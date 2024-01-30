@@ -27,24 +27,24 @@ const Header = () => {
             <div className="block md:bolock lg:hidden">
               <SideBarDrawer2></SideBarDrawer2>
             </div>
-            <div className="md:hidden flex items-center">
-              <img
-                className="w-10"
-                src="https://i.ibb.co/FBLHBHw/logo.png"
-                alt=""
-              />
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
-                TaskWave
-              </h1>
-            </div>
-            <div className="hidden md:flex items-center">
+            <div className="flex items-center gap-3 md:hidden">
+          <img
+            className="w-10"
+            src="https://i.ibb.co/SB6vPxw/logo.png"
+            alt=""
+          />
+          <h1 className="text-base md:text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+            TaskHub Connect
+          </h1>
+        </div>
+            <div className="hidden md:hidden lg:flex items-center">
               <input
                 type="text"
                 placeholder="Find Anything..."
                 className="px-2 h-10 rounded-l-md border-y border-l border-gray-400"
               />
               <div className="border border-gray-400 px-2 h-10 rounded-r-md flex justify-center items-center">
-                <FaAnglesRight className="text-teal-600 text-3xl"></FaAnglesRight>
+                <FaAnglesRight className="text-blue-400 text-3xl"></FaAnglesRight>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Header = () => {
           <div className="max-w-2xl">
             <h1 className="text-gray-500 text-2xl font-bold mb-1">
               Welcome Back,{" "}
-              <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                 {user?.displayName}
               </span>
             </h1>

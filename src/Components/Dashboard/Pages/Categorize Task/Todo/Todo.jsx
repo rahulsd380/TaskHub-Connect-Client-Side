@@ -8,9 +8,8 @@ import useAllTasks from "../../../../../hooks/useAllTasks";
 import TodoTasks from "./TodoTasks";
 
 const Todo = () => {
-  
-  const [allTasks, isLoading, ] = useAllTasks();
-  
+  const [allTasks, isLoading] = useAllTasks();
+
   const todoLists = allTasks.filter((list) => list.status === "to-do");
 
   return (
@@ -18,7 +17,7 @@ const Todo = () => {
       <Header></Header>
 
       <h1 className="text-3xl font-bold mb-7 pb-3 border-b text-gray-500 flex items-center gap-2">
-        <FaArrowsTurnToDots className="text-teal-500"></FaArrowsTurnToDots>{" "}
+        <FaArrowsTurnToDots className="text-blue-400"></FaArrowsTurnToDots>{" "}
         To-Do Task List
       </h1>
       {isLoading ? (
@@ -37,11 +36,11 @@ const Todo = () => {
                 <div className="w-48">
                   <Lottie animationData={empty}></Lottie>
                 </div>
-                <h1 className="text-teal-500 text-4xl font-semibold text-center mb-5">
+                <h1 className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent text-4xl font-semibold text-center mb-5">
                   No task available
                 </h1>
                 <Link to={"/dashboard/addTask"}>
-                  <button className="text-white font-semibold px-4 py-2 bg-gradient-to-r from-emerald-300 to-emerald-500 transition duration-300 rounded-md text-center">
+                  <button className="text-white font-semibold px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 transition duration-300 rounded-md text-center">
                     Add New Task
                   </button>
                 </Link>

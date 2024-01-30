@@ -69,10 +69,10 @@ const AddTask = () => {
 
   return (
     <div>
-<Header></Header>
+      <Header></Header>
       <div>
         <h1 className="text-2xl text-gray-500 font-bold mb-7 flex items-center gap-2">
-          <BsBuildingAdd className="text-teal-500"></BsBuildingAdd> Add A New
+          <BsBuildingAdd className="text-blue-400"></BsBuildingAdd> Add A New
           Task
         </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -162,12 +162,12 @@ const AddTask = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-2 gap-5 md:gap-10">
                 <Link to={"/"}>
-                  <button className="text-gray-500 bg-white font-semibold px-4 py-2 border-2 rounded-md w-full text-center">
+                  <button className="text-gray-500 bg-white font-semibold px-4 py-1 border-2 rounded-md w-full text-center">
                     Cancel
                   </button>
                 </Link>
 
-                <button className="text-gray-200 font-semibold px-4 py-2 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-md w-full text-center">
+                <button className="text-gray-200 font-semibold px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-md w-full text-center">
                   Add New
                 </button>
               </div>
