@@ -7,8 +7,11 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Hero = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
+ 
 
   const [users, setUsers] = useState({});
+  // console.log(users);
   const url = `https://task-hub-connect-server.vercel.app/users?email=${user?.email}`;
   console.log(users);
 
